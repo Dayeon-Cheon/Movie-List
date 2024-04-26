@@ -17,11 +17,13 @@ function createCards(arr) {
     let voteAverage = arr["vote_average"];
 
     let card = `
-      <div onclick="alert(${id});">
+      <div id="card" onclick="alert('영화 ID : ${id}');">
         <img src="${posterPath}" alt="영화 이미지" />
-        <h3>${title}</h3>
-        <p>${overview}</p>
-        <p>평점 : ${voteAverage}</p>
+        <div id="cardContent">
+          <p id="movieTitle">${title}</p>
+          <p id="movieOverview">${overview}</p>
+          <p id="movieRate">⭐️ 평점 : ${voteAverage} ⭐️</p>
+        </div>
       </div>`;
 
     $("#cardList").append(card);

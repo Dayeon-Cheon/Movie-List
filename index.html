@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <title>인기 영화 목록</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -11,15 +12,31 @@
   </head>
   <body>
     <header>
-      <h1>🎬</h1>
+      <div id="title">
+        <a href="#" onclick="window.location.reload(true);">
+          <img src="./favicon-32x32.png" alt="logo image" />
+          인기 영화 목록
+        </a>
+      </div>
+      <div id="searchForm">
+        <form onsubmit="return false">
+          <input
+            id="searchStr"
+            type="text"
+            placeholder=" 검색어를 입력해 주세요"
+            autofocus
+          />
+          <button id="searchBtn" onclick="getMovies()">
+            <img src="magnifier.png" alt="search image" />
+          </button>
+        </form>
+      </div>
     </header>
-    <form onsubmit="return false">
-      <input id="searchStr" type="text" autofocus />
-      <!-- <button id="searchBtn">검색</button> -->
-      <button id="searchBtn" onclick="getMovies()">검색</button>
-    </form>
-    <section>
-      <div id="cardList"></div>
-    </section>
+    <main>
+      <div id="cardContainer">
+        <div id="cardList"></div>
+      </div>
+    </main>
+    <footer>어쩌고 저쩌고</footer>
   </body>
 </html>
