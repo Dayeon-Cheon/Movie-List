@@ -114,14 +114,18 @@ a {
 }
 
 #movieTitle {
+  margin: 20px 0;
   font-size: 18px;
   font-weight: bold;
 }
 
 #movieOverview {
   font-size: 12px;
+  line-height: 120%;
 }
 
 #movieRate {
+  margin: 20px 0;
+  font-size: 14px;
   font-weight: bold;
 }

@@ -3,8 +3,8 @@ const options = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MmNlMDgxODZlYzU4OTNmOGExYjExMWJjMmRkZDhjOCIsInN1YiI6IjY2MjhmNGQ2Mzc4MDYyMDE2NWRhNmI4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.l-m9qW7ld2ivw1TIijs04VXXbLjlQm2b9ZGdtuOWPWE",
-  },
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MmNlMDgxODZlYzU4OTNmOGExYjExMWJjMmRkZDhjOCIsInN1YiI6IjY2MjhmNGQ2Mzc4MDYyMDE2NWRhNmI4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.l-m9qW7ld2ivw1TIijs04VXXbLjlQm2b9ZGdtuOWPWE"
+  }
 };
 
 function createCards(arr) {
@@ -17,12 +17,12 @@ function createCards(arr) {
     let voteAverage = arr["vote_average"];
 
     let card = `
-      <div id="card" onclick="alert('영화 ID : ${id}');">
-        <img src="${posterPath}" alt="영화 이미지" />
+      <div id="card" onclick="alert('Movie ID : ${id}');">
+        <img src="${posterPath}" alt="movie image" />
         <div id="cardContent">
           <p id="movieTitle">${title}</p>
           <p id="movieOverview">${overview}</p>
-          <p id="movieRate">⭐️ 평점 : ${voteAverage} ⭐️</p>
+          <p id="movieRate">⭐️ Rating : ${voteAverage} ⭐️</p>
         </div>
       </div>`;
 
@@ -31,19 +31,14 @@ function createCards(arr) {
 }
 
 function getMovies() {
-  fetch(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-    options
-  )
+  fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", options)
     .then((response) => response.json())
     .then((response) => {
       let word = document.getElementById("searchStr").value.toLowerCase();
       let movies = response["results"];
 
       if (word) {
-        let searchedMovies = movies.filter((movie) =>
-          movie.title.toLowerCase().includes(word)
-        );
+        let searchedMovies = movies.filter((movie) => movie.title.toLowerCase().includes(word));
 
         createCards(searchedMovies);
       } else {
