@@ -1,1 +1,1 @@
-Go to the site 👉 https://dayeon-cheon.github.io/Movie-List/
+Go to web site 👉 https://dayeon-cheon.github.io/Movie-List/
