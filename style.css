@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   padding-top: 80px;
+  background-color: #101010;
 }
 
 header {
@@ -24,10 +25,6 @@ header {
   height: 80px;
   width: 100%;
   background-color: #202020;
-}
-
-main {
-  background-color: #101010;
 }
 
 a {
@@ -62,6 +59,7 @@ a {
   height: 34px;
   width: 200px;
   margin-right: 4px;
+  padding-left: 10px;
   border-radius: 4px;
   border: none;
 }
@@ -87,41 +85,24 @@ a {
   background: #ccc;
 }
 
+#cardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 #card {
-  width: 90%;
-  margin: 16px;
-  padding-bottom: 16px;
+  width: 300px;
+  margin: 20px;
   background-color: #eaeae8;
   text-align: center;
   border-radius: 10px;
 }
 
-/*  Display two cards per row at 576px breakpoint */
-@media (min-width: 576px) {
-  #cardList {
-    /*  Set the display for the outer container to flex */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  #card {
-    /*  Set the flex-basis so that two cards are displayed in each row. */
-    flex-basis: calc(50% - 3rem);
-  }
-}
-
-/*  Display four cards across one row at 992px breakpoint */
-@media (min-width: 992px) {
-  #card {
-    /*  Set the flex-basis so four cards are displayed across one row. */
-    flex-basis: calc(25% - 3rem);
-  }
-}
-
 #card img {
   width: 100%;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 #card:hover {
@@ -135,6 +116,10 @@ a {
 #movieTitle {
   font-size: 18px;
   font-weight: bold;
+}
+
+#movieOverview {
+  font-size: 12px;
 }
 
 #movieRate {
