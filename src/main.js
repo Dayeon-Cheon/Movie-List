@@ -21,4 +21,3 @@ form.addEventListener("submit", (event) => {
 
 getCards();
 // getCards가 두 번 호출되는 게 마음에 안 드는데 어떻게 수정해야 할지 모르겠습니다..!
-// 애초에 구조적으로 잘못된 걸까요?!

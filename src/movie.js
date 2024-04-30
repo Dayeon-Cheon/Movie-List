@@ -31,7 +31,6 @@ export async function getCards(searchInput) {
   function showCards(arr) {
     let cardList = document.querySelector("#cardList");
     cardList.innerHTML = "";
-    // document.getElementById("cardList").innerHTML = "";
 
     // 검색 결과 있을 경우
     if (arr.length != 0) {
@@ -45,16 +44,15 @@ export async function getCards(searchInput) {
 
         // 아니면 아래 let card 안에서 ${arr["id"]}같이 값을 바로 줘도 괜찮나요?
         let card = `
-        <li id="card" data-id="${id}" onclick="alert('Movie ID : ${id}');">
+        <li id="card" data-id="${id}">
           <img src="${posterPath}" alt="movie image" />
-          <div id="cardContent">
-            <p id="movieTitle">${title}</p>
-            <p id="movieOverview">${overview}</p>
-            <p id="movieRate">⭐️ Rating : ${voteAverage} ⭐️</p>
-          </div>
+          <p id="movieTitle">${title}</p>
+          <p id="movieOverview">${overview}</p>
+          <p id="movieRate">⭐️ Rating : ${voteAverage} ⭐️</p>
         </li>`;
 
         cardList.insertAdjacentHTML("beforeend", card);
+        cardList.addEventListener("click", handleClickCard);
       });
     }
     // 검색 결과 없을 경우
@@ -62,6 +60,20 @@ export async function getCards(searchInput) {
       let msg = "<div id='emptyMsg'>No matching search results</div>";
 
       cardList.insertAdjacentHTML("beforeend", msg);
+    }
+
+    // 카드 클릭 시 alert 창에 영화 ID 표시
+    function handleClickCard(event) {
+      // 카드 밖이면 나가기
+      if (event.target === cardList) return;
+      // 카드 클릭 시
+      if (event.target.matches("#card")) {
+        alert(`Movie ID : ${event.target.dataset.id}`);
+      }
+      // 카드의 자식 태그 클릭 시 부모의 id로 접근
+      else {
+        alert(`Movie ID : ${event.target.parentNode.dataset.id}`);
+      }
     }
   }
 }
